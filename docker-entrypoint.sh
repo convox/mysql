@@ -27,7 +27,7 @@ if [ "$MYSQL_DATABASE" != "" ]; then
 fi
 
 chown mysql "$MYSQL_INITFILE"
-/usr/bin/mysqld --user=root --init-file=$MYSQL_INITFILE
+/usr/bin/mysqld_safe --user=root --init-file=$MYSQL_INITFILE
 rm -f $MYSQL_INITFILE
 
 exec gosu mysql "$@"
