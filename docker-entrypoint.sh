@@ -22,6 +22,7 @@ if [ "$MYSQL_DATABASE" != "" ]; then
 
   if [ "$MYSQL_USERNAME" != "" ]; then
     echo "[i] Creating user: $MYSQL_USERNAME with password $MYSQL_PASSWORD"
+    echo "GRANT ALL ON \`$MYSQL_DATABASE\`.* to '$MYSQL_USERNAME'@'localhost' IDENTIFIED BY '$MYSQL_PASSWORD';" >> $MYSQL_INITFILE
     echo "GRANT ALL ON \`$MYSQL_DATABASE\`.* to '$MYSQL_USERNAME'@'%' IDENTIFIED BY '$MYSQL_PASSWORD';" >> $MYSQL_INITFILE
   fi
 fi
