@@ -1,4 +1,4 @@
-# convox/postgres
+# convox/mysql
 
 Mysql docker image based on Alpine Linux
 
