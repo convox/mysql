@@ -1,7 +1,6 @@
-FROM alpine:3.3
+FROM alpine:3.4
 
-RUN apk add --update curl mysql mysql-client && \
-    rm -rf /var/cache/apk/*
+RUN apk add --no-cache curl mysql mysql-client
 
 RUN curl -o /usr/local/bin/gosu -sSL "https://github.com/tianon/gosu/releases/download/1.2/gosu-amd64"
 RUN chmod +x /usr/local/bin/gosu
@@ -25,6 +24,8 @@ ENV TERM dumb
 VOLUME /var/lib/mysql
 
 COPY docker-entrypoint.sh /
+
+RUN apk del curl
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
