@@ -1,6 +1,6 @@
 FROM alpine:3.4
 
-RUN apk add --no-cache curl mysql mysql-client
+RUN apk add --no-cache curl mysql mysql-client tzdata
 
 RUN curl -o /usr/local/bin/gosu -sSL "https://github.com/tianon/gosu/releases/download/1.2/gosu-amd64"
 RUN chmod +x /usr/local/bin/gosu
