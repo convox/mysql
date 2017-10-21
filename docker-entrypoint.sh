@@ -30,6 +30,7 @@ fi
 
 chown mysql "$MYSQL_INITFILE"
 /usr/bin/mysqld_safe --user=root --init-file=$MYSQL_INITFILE
+/usr/bin/mysql_tzinfo_to_sql /usr/share/zoneinfo | /usr/bin/mysql -u root mysql
 rm -f $MYSQL_INITFILE
 
 exec gosu mysql "$@"
